@@ -1,0 +1,67 @@
+@keyframes slide-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.greeting h3 {
+  font-size: 2em;
+  color: #ffffff;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #006616;
+  width: 0;
+  animation: typing 2.5s steps(20) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+}
+
+.hidden {
+  opacity: 0;
+  animation: slide-up 1s ease-in-out forwards;
+}
+
+.name {
+  font-family: "Chewy", sans-serif;
+  font-size: 5em;
+  text-align: center;
+  color: #fff;
+  animation-delay: 4s;
+  animation: slide-up 1s ease-in-out forwards 4s;
+}
+
+.subtitle {
+  font-size: 2em;
+  text-align: center;
+  color: #000000;
+  animation-delay: 5s;
+  animation: slide-up 1s ease-in-out forwards 5s;
+}
+
+.description {
+  font-size: 1.5em;
+  text-align: center;
+  color: #ffffff;
+  animation-delay: 6s;
+  animation: slide-up 1s ease-in-out forwards 6s;
+}

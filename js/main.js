@@ -1,14 +1,15 @@
-document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+window.addEventListener('load', function() {
+    // Cuando la página termine de cargar, aseguramos que el scroll esté en la parte superior
+    window.scrollTo(0, 0);
+  });
+  
+window.onload = () => {
+    document.body.style.overflow = 'hidden';
 
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+    const totalAnimationTime = 7 * 1000;
 
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                });
-            }
-        });
-});
+    setTimeout(() => {
+      document.body.style.overflow = 'auto';
+    }, totalAnimationTime);
+  };
+  
