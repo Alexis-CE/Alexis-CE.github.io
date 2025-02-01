@@ -4,6 +4,7 @@ body {
   padding: 0;
   color: #fff;
   height: 100%;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -319,7 +320,7 @@ header h2 {
   object-fit: contain;
 }
 
-/* Sección de Contacto */
+
 .contact {
   padding: 50px 0;
   background-color: #111;
@@ -402,7 +403,7 @@ header h2 {
   background-color: #e55347;
 }
 
-/* Estilo para el Footer */
+
 footer {
   background-color: #111;
   color: #fff;
@@ -430,4 +431,117 @@ footer p {
 
 .footer-logos img:hover {
   transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 768px) { 
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .Presentation {
+    height: auto;
+    padding: 50px 20px;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  header h2 {
+    font-size: 1.1em;
+  }
+
+  .about-me {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .about-image img {
+    width: 180px;
+    height: auto;
+  }
+
+  .about-text {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .front-end, .back-end, .certifications, .tools {
+    width: 90%;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .tools-and-images {
+    display: none;
+  }
+
+  .contact-container {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .contact-form input, 
+  .contact-form textarea {
+    width: 100%;
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-logos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-logos img {
+    width: 35px;
+    height: auto;
+  }
 }
