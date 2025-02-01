@@ -18,7 +18,7 @@ const certifications = {
             { img: '../assets/Diplomas/Ingles (13).jpg' },
             { img: '../assets/Diplomas/Ingles (14).jpg' },
             { img: '../assets/Diplomas/Ingles (15).jpg' },
-            { img: '../assets/Diplomas/Ingles (16).jpg' }
+            { img: '../assets/Diplomas/ingles.jpg' }
         ]
     },
     css_html: {
