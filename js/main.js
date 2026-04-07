@@ -1,69 +1,52 @@
 
+let currentImages = [];
+let currentIndex = 0;
+
+function generateImages(path, prefix, total) {
+    const items = [];
+
+    for (let i = 1; i <= total; i++) {
+        const number = String(i).padStart(2, '');
+        items.push({
+            img: `${path}/${prefix}(${number}).jpg`
+        });
+    }
+
+    return items;
+}
+
 const certifications = {
     english: {
-        title: "English Certifications",
-        items: [
-            { img: '../assets/Diplomas/Ingles (1).jpg' },
-            { img: '../assets/Diplomas/Ingles (2).jpg' },
-            { img: '../assets/Diplomas/Ingles (3).jpg' },
-            { img: '../assets/Diplomas/Ingles (4).jpg' },
-            { img: '../assets/Diplomas/Ingles (5).jpg' },
-            { img: '../assets/Diplomas/Ingles (6).jpg' },
-            { img: '../assets/Diplomas/Ingles (7).jpg' },
-            { img: '../assets/Diplomas/Ingles (8).jpg' },
-            { img: '../assets/Diplomas/Ingles (9).jpg' },
-            { img: '../assets/Diplomas/Ingles (10).jpg' },
-            { img: '../assets/Diplomas/Ingles (11).jpg' },
-            { img: '../assets/Diplomas/Ingles (12).jpg' },
-            { img: '../assets/Diplomas/Ingles (13).jpg' },
-            { img: '../assets/Diplomas/Ingles (14).jpg' },
-            { img: '../assets/Diplomas/Ingles (15).jpg' },
-            { img: '../assets/Diplomas/ingles.jpg' }
-        ]
+        title: "English Certifications",    
+        items: generateImages('./assets/Diplomas/english', 'english', 16)
     },
-    css_html: {
-        title: "CSS & HTML Certifications",
-        items: [
-            { img: '../assets/Diplomas/html & css (1).jpg' },
-            { img: '../assets/Diplomas/html & css (2).jpg' },
-            { img: '../assets/Diplomas/html & css (3).jpg' },
-            { img: '../assets/Diplomas/html & css (4).jpg' },
-            { img: '../assets/Diplomas/html & css (5).jpg' },
-            { img: '../assets/Diplomas/html & css (6).jpg' }
-        ]
+    frontend: {
+        title: "Frontend Certifications",
+        items: generateImages('./assets/Diplomas/frontend', 'frontend', 5)
     },
-    js: {
+    javascript: {
         title: "JavaScript Certifications",
-        items: [
-            { img: '../assets/Diplomas/js (1).jpg' },
-            { img: '../assets/Diplomas/js (2).jpg' },
-            { img: '../assets/Diplomas/js (3).jpg' },
-            { img: '../assets/Diplomas/js (4).jpg' }
-        ]
+        items: generateImages('./assets/Diplomas/javascript', 'javascript', 9)
     },
-    misc: {
-        title: "Miscellaneous Certifications",
-        items: [
-            { img: '../assets/Diplomas/varios (1).jpg' },
-            { img: '../assets/Diplomas/varios (2).jpg' },
-            { img: '../assets/Diplomas/varios (3).jpg' },
-            { img: '../assets/Diplomas/varios (4).jpg' },
-            { img: '../assets/Diplomas/varios (5).jpg' },
-            { img: '../assets/Diplomas/varios (6).jpg' },
-            { img: '../assets/Diplomas/varios (7).jpg' },
-            { img: '../assets/Diplomas/varios (8).jpg' },
-            { img: '../assets/Diplomas/varios (9).jpg' },
-            { img: '../assets/Diplomas/varios (10).jpg' },
-            { img: '../assets/Diplomas/varios (11).jpg' },
-            { img: '../assets/Diplomas/varios (12).jpg' },
-            { img: '../assets/Diplomas/varios (13).jpg' },
-            { img: '../assets/Diplomas/varios (14).jpg' },
-            { img: '../assets/Diplomas/varios (15).jpg' },
-            { img: '../assets/Diplomas/varios (16).jpg' },
-            { img: '../assets/Diplomas/varios (17).jpg' },
-            { img: '../assets/Diplomas/varios (18).jpg' },
-            { img: '../assets/Diplomas/varios (19).jpg' }
-        ]
+    backend: {
+        title: "Backend Certifications",
+        items: generateImages('./assets/Diplomas/backend', 'backend', 2)
+    },
+    tools: {
+        title: "Tools Certifications",
+        items: generateImages('./assets/Diplomas/tools', 'tools', 3)
+    },
+    systems: {
+        title: "Systems Certifications",
+        items: generateImages('./assets/Diplomas/systems', 'systems', 6)
+    },
+    networks: {
+        title: "Networks Certifications",
+        items: generateImages('./assets/Diplomas/networks', 'networks', 2)
+    },
+    logic: {
+        title: "Logic Certifications",
+        items: generateImages('./assets/Diplomas/logic', 'logic', 8)
     }
 };
 
@@ -71,34 +54,113 @@ const certifications = {
 function createCertificationSection(sectionId, sectionData) {
     const section = document.getElementById(sectionId);
 
-
     const title = document.createElement('h2');
     title.classList.add('section-title');
     title.textContent = sectionData.title;
-    section.appendChild(title);
-
 
     const grid = document.createElement('div');
     grid.classList.add('certifications-grid');
 
+    sectionData.items.forEach((cert, index) => {
+    const certification = document.createElement('div');
+    certification.classList.add('certification');
 
-    sectionData.items.forEach(cert => {
-        const certification = document.createElement('div');
-        certification.classList.add('certification');
+    const img = document.createElement('img');
+    img.src = cert.img;
+    img.loading = 'lazy';
+    img.alt = 'Certification Image';
 
-        const img = document.createElement('img');
-        img.src = cert.img;
-        img.alt = 'Certification Image';
+    img.addEventListener('click', () => {
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
 
-        certification.appendChild(img);
-        grid.appendChild(certification);
+        currentImages = sectionData.items.map(item => item.img);
+        currentIndex = index;
+
+        modal.style.display = "block";
+        modalImg.src = currentImages[currentIndex];
     });
 
+    certification.appendChild(img);
+    grid.appendChild(certification);
+});
+
+    section.appendChild(title);
     section.appendChild(grid);
+
+    document.getElementById('close').onclick = () => {
+    document.getElementById('modal').style.display = "none";
+};
+
+
+    window.onclick = (e) => {
+        const modal = document.getElementById('modal');
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    };
 }
 
+function showImage(index) {
+    const modalImg = document.getElementById('modal-img');
+    modalImg.src = currentImages[index];
+}
 
-createCertificationSection('html-certifications', certifications.english);
-createCertificationSection('css-certifications', certifications.css_html);
-createCertificationSection('js-certifications', certifications.js);
-createCertificationSection('misc-certifications', certifications.misc);
+document.getElementById('prev').onclick = () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage(currentIndex);
+};
+
+document.getElementById('next').onclick = () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage(currentIndex);
+};
+
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('modal');
+
+    if (modal.style.display === "block") {
+        if (e.key === "ArrowRight") {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            showImage(currentIndex);
+        }
+
+        if (e.key === "ArrowLeft") {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            showImage(currentIndex);
+        }
+
+        if (e.key === "Escape") {
+            modal.style.display = "none";
+        }
+    }
+});
+
+let startX = 0;
+
+document.getElementById('modal').addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+});
+
+document.getElementById('modal').addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        showImage(currentIndex);
+    }
+
+    if (endX - startX > 50) {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        showImage(currentIndex);
+    }
+});
+
+createCertificationSection('english-certifications', certifications.english);
+createCertificationSection('frontend-certifications', certifications.frontend);
+createCertificationSection('javascript-certifications', certifications.javascript);
+createCertificationSection('backend-certifications', certifications.backend);
+createCertificationSection('tools-certifications', certifications.tools);
+createCertificationSection('systems-certifications', certifications.systems);
+createCertificationSection('networks-certifications', certifications.networks);
+createCertificationSection('logic-certifications', certifications.logic);
