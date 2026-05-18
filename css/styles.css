@@ -90,12 +90,18 @@ body {
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background: var(--bg2);
+  background: rgba(15,15,19,0.97);
+  backdrop-filter: blur(14px);
   border-bottom: 0.5px solid var(--border);
   padding: 0;
-  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  max-height: 0;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  position: fixed;
+  top: 49px;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
 .mobile-menu.open {
   max-height: 300px;
