@@ -1,188 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Alexis Carbajal</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/typeanimation.css">
-    <!--fuentes de Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
-    <meta name="google-site-verification" content="04etAAN3f8GWUDl_N_Te6_3Lz6a-3779eg02K7BTcOA" />
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Alexis Carbajal Espinoza">
-    <meta name="description" content="Portafolio de Alexis Carbajal Espinoza, desarrollador web y programador full-stack.">
-    <meta name="keywords" content="Alexis Carbajal, desarrollador web, programador, full-stack, JavaScript, portafolio">
-    <meta property="og:title" content="Alexis Carbajal Espinoza - Portafolio">
-    <meta property="og:description" content="Explora mi trabajo como desarrollador web y programador full-stack.">
-    <meta property="og:url" content="https://alexis-ce.github.io/">
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexis Carbajal — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta name="author" content="Alexis Carbajal Espinoza">
+  <meta name="description" content="Portafolio de Alexis Carbajal Espinoza, desarrollador web frontend especializado en JavaScript.">
+  <meta name="keywords" content="Alexis Carbajal, desarrollador web, JavaScript, frontend, portafolio">
+  <meta property="og:title" content="Alexis Carbajal — Portfolio">
+  <meta property="og:description" content="Frontend developer building interactive, performant web applications.">
+  <meta property="og:url" content="https://alexis-ce.github.io/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div class="overlay"></div>
-    <section class="Presentation">
-        <section class="greeting">
-            <h3>Hello! I am...</h3>
-        </section>
-        <header>
-            <h1 class="name hidden">ALEXIS CARBAJAL</h1>
-            <h2 class="subtitle hidden"><- Web Developer -></h2>
-            <p class="description hidden">Your ideas, my code – let’s build something great together.</p>
-        </header>
-    </section>
-    
-    <section class="about-me">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="./assets/Perfil.jpg" alt="profile" loading="lazy">
-            </div>
-            <div class="about-text">
-                <h2>ABOUT ME</h2>
-                <p>
-                    Hello! I’m Alexis Carbajal
-                <p>
-                I am a frontend developer specialized in JavaScript, focused on building interactive and performant web applications.
-                </p>
-                <p>
-                I have experience with DOM manipulation, responsive design, and performance optimization.
-                </p>
-                <p>
-                Currently expanding into backend development with Node.js and Express.
-                </p>
-            </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">AC<span class="dot-cyan">.</span></div>
+    <div class="nav-links">
+      <a href="#about" onclick="smoothTo(event,'about')">About</a>
+      <a href="#projects" onclick="smoothTo(event,'projects')">Projects</a>
+      <a href="#skills" onclick="smoothTo(event,'skills')">Skills</a>
+      <a href="#contact" onclick="smoothTo(event,'contact')">Contact</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"    onclick="smoothTo(event,'about');closeMobileMenu()">About</a>
+    <a href="#projects" onclick="smoothTo(event,'projects');closeMobileMenu()">Projects</a>
+    <a href="#skills"   onclick="smoothTo(event,'skills');closeMobileMenu()">Skills</a>
+    <a href="#contact"  onclick="smoothTo(event,'contact');closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="grid-bg"></div>
+    <div class="glow-blob" id="glowBlob"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Frontend Developer — Mexico City</div>
+      <h1 class="hero-name">Alexis<br><span class="dim">Carbajal</span></h1>
+      <div class="type-line">
+        <span id="typeText"></span><span class="cursor"></span>
+      </div>
+      <p class="hero-sub">Building interactive, performant web applications.<br>Your ideas, my code — let's build something great.</p>
+      <div class="hero-cta">
+        <a href="#projects" onclick="smoothTo(event,'projects')" class="btn btn-primary">View projects</a>
+        <a href="#contact" onclick="smoothTo(event,'contact')" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-img-col">
+      <div class="about-img-wrap">
+        <img src="./assets/Perfil.jpg" alt="Alexis Carbajal" loading="lazy">
+      </div>
+    </div>
+    <div class="about-text-col">
+      <div class="section-label">About</div>
+      <h2 class="about-title">Frontend dev expanding into <span class="rgb-text">full-stack</span></h2>
+      <p>Specialized in JavaScript with experience in DOM manipulation, responsive design, and performance optimization.</p>
+      <p>Currently expanding into backend with Node.js, Express, and databases — building towards full-stack capability.</p>
+      <p>Every project I build is for a real use case. No dummy apps — real clients, real problems.</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-header">
+      <h2>Projects</h2>
+      <span class="count">3 projects</span>
+    </div>
+
+    <a href="https://alexis-ce.github.io/Barja-s-menu/" target="_blank" class="project-row pr-cyan">
+      <div class="pr-num">01</div>
+      <div class="pr-info">
+        <h3>Barja's Menu</h3>
+        <p>Digital menu for a real local food &amp; drinks business. Category navigation, cart system, order customization with special instructions, and payment flow (cash &amp; transfer).</p>
+        <div class="chips">
+          <span class="chip">JavaScript</span>
+          <span class="chip">DOM</span>
+          <span class="chip">Responsive Design</span>
         </div>
-    </section>
+      </div>
+      <div class="pr-arrow">↗</div>
+    </a>
 
-    <section class="projects">
-        <h2>Projects</h2>
-        <hr class="line">
-        <div class="projects-container">
-            <div class="project-card">
-                <h3>1</h3>
-                <a href="https://alexis-ce.github.io/Mokepon/" class="project1-title">
-                    <h3>MOKEPON</h3>
-                </a>
-                <p>
-                Browser-based game built with JavaScript.
-                Implements character selection, combat logic, and dynamic DOM updates.
-                Focused on core programming logic and event-driven interactions.
-                </p>
-            <p><strong>Tech:</strong> JavaScript, HTML, CSS</p>
-            </div>
-            <div class="project-card">
-                <h3>2</h3>
-                <a href="https://alexis-ce.github.io/Barja-s-menu/" class="project2-title" target="_blank">
-                    <h3>Barja's Menu</h3>
-                </a>
-                <p>
-                    Digital menu for a real local food & drinks business.
-                    Features category navigation (frappes, beverages, snacks), cart system,
-                    order customization with special instructions, and payment flow (cash & transfer).
-                </p>
-                <p><strong>Tech:</strong> JavaScript, DOM, Responsive Design</p>
-            </div>
-            
-            <div class="project-card">
-                <h3>3</h3>
-                <a href="https://laravel-web-2f0e.onrender.com" target="_blank">
-                    <h3>Laravel Web System</h3>
-                </a>
-                <p>
-                    Full-stack web application built with Laravel and MySQL.  
-                    Includes authentication system, user roles, dynamic content management, and persistent database integration.  
-                    This project demonstrates backend architecture, database handling, and real-world deployment.
-                </p>
-            </div>
-    </section>
-    
-    <section class="skills">
-        <h2>Skills</h2>
-        <hr class="line">
-    
-        <div class="skills-container">
-
-            <div class="front-end">
-                <h3>Front-End</h3>
-                <ul>
-                    <li>JavaScript</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>React</li>
-                </ul>
-
-            </div>
-    
-            <div class="certifications">
-                <p>If you're interested in checking out the certifications I've earned in these areas and others, feel free to visit my...</p>
-                <a href="certifications-page.html" target="_blank">Certifications Page</a>
-                <p>50+ certifications in web development and software fundamentals.</p>
-            </div>
-    
-            <div class="back-end">
-                <h3>Back-End (In Progress)</h3>
-                <ul>
-                    <li>Node.js</li>
-                    <li>Express</li>
-                </ul>
-            </div>
+    <a href="https://laravel-web-2f0e.onrender.com" target="_blank" class="project-row pr-purple">
+      <div class="pr-num">02</div>
+      <div class="pr-info">
+        <h3>Laravel Web System</h3>
+        <p>Full-stack web application with authentication system, user roles, dynamic content management, and persistent MySQL database. Demonstrates backend architecture and real-world deployment.</p>
+        <div class="chips">
+          <span class="chip">Laravel</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">PHP</span>
         </div>
-    
+      </div>
+      <div class="pr-arrow">↗</div>
+    </a>
 
-
-        <div class="tools-and-images" style="display: flex;">
-
-            <div class="images">
-                <img src="./assets/front.png" alt="front" loading="lazy">
-            </div>
-
-            <div class="tools">
-                <h3>Tools</h3>
-                <ul>
-                    <li>Git</li>
-                    <li>GitHub</li>
-                    <li>VS Code</li>
-                </ul>
-            </div>
-    
-            <div class="images">
-                <img src="./assets/back.png" alt="back" loading="lazy">
-            </div>
+    <a href="https://alexis-ce.github.io/Mokepon/" target="_blank" class="project-row pr-orange">
+      <div class="pr-num">03</div>
+      <div class="pr-info">
+        <h3>Mokepon</h3>
+        <p>Browser-based game built with JavaScript. Character selection, combat logic, and dynamic DOM updates. Focused on core programming logic and event-driven interactions.</p>
+        <div class="chips">
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
         </div>
-    </section>
-    
-    <section class="contact">
-        <h2>Contact Me</h2>
-        <hr class="line">
-        <p>If you have any questions or want to collaborate, feel free to reach out to me!</p>
-        <div class="contact-container">
-            <form action="https://formspree.io/f/manqjbyv" method="POST" class="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required placeholder="Your Name">
-            
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Your Email">
-            
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
-            
-                <button type="submit" class="submit-button">Send Message</button>
-            </form>            
-        </div>
-    </section>
+      </div>
+      <div class="pr-arrow">↗</div>
+    </a>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Alexis Carbajal Espinoza. All rights reserved.</p>
-        <div class="footer-logos">
-            <a href="https://www.linkedin.com/in/alexis-carbajal-51812434a/" target="_blank"><img src="./assets/Linkedin.png" alt="Logo 1"></a>
-            <a href="https://wa.me/525578370483?text=Hola%20Alexis.
-            " target="_blank"><img src="./assets/Whatsapp.png" alt="Logo 2"></a>
-            <a href="https://www.facebook.com/profile.php?id=100072151099808&locale=es_LA" target="_blank"><img src="./assets/facebook.png" alt="Logo 3"></a>
-        </div>
-    </footer>
-    
-    <script src="./js/main.js"></script>
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="section-header">
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h3>Frontend</h3>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">JavaScript</span></div>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">HTML</span></div>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">CSS</span></div>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">React</span></div>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">Responsive Design</span></div>
+      </div>
+      <div class="skill-col">
+        <h3>Backend</h3>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">Node.js</span></div>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">Express</span></div>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">PHP / Laravel</span></div>
+        <div class="skill-item"><div class="dot dot-purple"></div><span>SQL / MySQL</span><span class="badge">learning</span></div>
+        <div class="skill-item"><div class="dot dot-purple"></div><span>REST APIs</span><span class="badge">learning</span></div>
+      </div>
+      <div class="skill-col">
+        <h3>Tools</h3>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">Git</span></div>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">GitHub</span></div>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">VS Code</span></div>
+      </div>
+    </div>
+    <div class="certs-link-row">
+      <p>50+ certifications in web development and software fundamentals.</p>
+      <a href="certifications-page.html" target="_blank" class="btn btn-ghost">View Certifications ↗</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-left">
+      <div class="section-label">Contact</div>
+      <h2>Let's build something<br><span class="rgb-text">together</span></h2>
+      <div class="neon-line"></div>
+      <p>Have a project in mind or want to collaborate? Feel free to reach out.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/alexis-carbajal-51812434a/" target="_blank" class="social-btn">LinkedIn ↗</a>
+        <a href="https://wa.me/525578370483?text=Hola%20Alexis." target="_blank" class="social-btn">WhatsApp ↗</a>
+        <a href="https://github.com/Alexis-CE" target="_blank" class="social-btn">GitHub ↗</a>
+        <a href="https://www.facebook.com/profile.php?id=100072151099808" target="_blank" class="social-btn">Facebook ↗</a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <form action="https://formspree.io/f/manqjbyv" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Name" required class="input input-name">
+        <input type="email" name="email" placeholder="Email" required class="input input-email">
+        <textarea name="message" placeholder="Message" rows="5" required class="input input-msg"></textarea>
+        <button type="submit" class="btn-send">Send Message ✦</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2025 Alexis Carbajal Espinoza. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="https://github.com/Alexis-CE" target="_blank">GitHub</a>
+      <a href="certifications-page.html" target="_blank">Certifications</a>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // Smooth scroll function
+    function smoothTo(e, id) {
+      e.preventDefault();
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+    const phrases = ['Web Developer', 'Frontend Engineer', 'JavaScript Dev', 'Building for the web'];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typeText');
+    function tick() {
+      const word = phrases[pi];
+      if (!deleting) {
+        el.textContent = word.slice(0, ci + 1);
+        ci++;
+        if (ci === word.length) { setTimeout(() => { deleting = true; tick(); }, 1800); return; }
+      } else {
+        el.textContent = word.slice(0, ci - 1);
+        ci--;
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(tick, deleting ? 60 : 100);
+    }
+    setTimeout(tick, 800);
+
+    // RGB blob color cycle
+    const colors = ['#00ffcc', '#7b2fff', '#ff006e', '#0088ff'];
+    let colorIdx = 0;
+    const blob = document.getElementById('glowBlob');
+    setInterval(() => { colorIdx = (colorIdx + 1) % colors.length; blob.style.background = colors[colorIdx]; }, 2200);
+
+    // Hamburger menu
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => { menu.classList.toggle('open'); ham.classList.toggle('active'); });
+    function closeMobileMenu() { menu.classList.remove('open'); ham.classList.remove('active'); }
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.about, .project-row, .skill-col, .contact-left, .contact-right').forEach(el => {
+      el.classList.add('fade-up');
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
