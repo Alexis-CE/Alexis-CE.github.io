@@ -42,6 +42,34 @@
   <section class="hero">
     <div class="grid-bg"></div>
     <div class="glow-blob" id="glowBlob"></div>
+
+    <!-- Floating shapes -->
+    <svg class="shapes" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <!-- Top left area -->
+      <circle cx="80" cy="90" r="42" fill="none" stroke="#00ffcc" stroke-width="3" class="shape s1"/>
+      <polygon points="200,40 235,105 165,105" fill="none" stroke="#ff3d8a" stroke-width="3" class="shape s2"/>
+      <!-- Top center -->
+      <rect x="540" y="30" width="44" height="44" rx="10" fill="none" stroke="#ffd166" stroke-width="2.5" transform="rotate(-12,562,52)" class="shape s4"/>
+      <!-- Top right -->
+      <circle cx="1050" cy="80" r="52" fill="none" stroke="#00ffcc" stroke-width="3" class="shape s1"/>
+      <polygon points="1150,30 1185,95 1115,95" fill="none" stroke="#ff3d8a" stroke-width="2.5" class="shape s2"/>
+      <!-- Middle left -->
+      <rect x="30" cy="320" x="30" y="300" width="46" height="46" fill="none" stroke="#9b5fff" stroke-width="3" transform="rotate(20,53,323)" class="shape s3"/>
+      <!-- Middle center-left -->
+      <polygon points="380,310 410,290 440,310 430,345 390,345" fill="none" stroke="#ff7733" stroke-width="2.5" class="shape s8"/>
+      <!-- Middle right -->
+      <rect x="960" y="280" width="50" height="50" rx="14" fill="none" stroke="#ffd166" stroke-width="3" transform="rotate(-15,985,305)" class="shape s4"/>
+      <polygon points="1100,220 1130,260 1100,300 1070,260" fill="none" stroke="#00ffcc" stroke-width="2.5" class="shape s6"/>
+      <!-- Bottom left -->
+      <rect x="120" y="560" width="54" height="54" fill="none" stroke="#ff7733" stroke-width="3" transform="rotate(30,147,587)" class="shape s7"/>
+      <circle cx="260" cy="620" r="28" fill="none" stroke="#ff3d8a" stroke-width="2.5" class="shape s5"/>
+      <!-- Bottom center -->
+      <rect x="580" y="580" width="40" height="40" fill="none" stroke="#9b5fff" stroke-width="2.5" transform="rotate(15,600,600)" class="shape s3"/>
+      <!-- Bottom right -->
+      <circle cx="1000" cy="580" r="36" fill="none" stroke="#ffd166" stroke-width="2.5" class="shape s5"/>
+      <polygon points="1130,520 1160,560 1130,600 1100,560" fill="none" stroke="#9b5fff" stroke-width="2.5" class="shape s6"/>
+    </svg>
+
     <div class="hero-content">
       <div class="hero-tag">Frontend Developer — Mexico City</div>
       <h1 class="hero-name">Alexis<br><span class="dim">Carbajal</span></h1>
@@ -62,6 +90,15 @@
       <div class="about-img-wrap">
         <img src="./assets/Perfil.jpg" alt="Alexis Carbajal" loading="lazy">
       </div>
+      <!-- Floating shapes around photo -->
+      <svg class="about-shapes" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="60" r="22" fill="none" stroke="#00ffcc" stroke-width="2.5" class="shape s1"/>
+        <polygon points="340,40 365,85 315,85" fill="none" stroke="#ff3d8a" stroke-width="2.5" class="shape s2"/>
+        <rect x="350" y="200" width="36" height="36" fill="none" stroke="#ffd166" stroke-width="2.5" transform="rotate(20,368,218)" class="shape s3"/>
+        <polygon points="20,350 45,310 70,350 45,390" fill="none" stroke="#9b5fff" stroke-width="2.5" class="shape s6"/>
+        <circle cx="370" cy="420" r="18" fill="none" stroke="#ff7733" stroke-width="2.5" class="shape s5"/>
+        <rect x="15" y="180" width="28" height="28" rx="6" fill="none" stroke="#ff3d8a" stroke-width="2" transform="rotate(-15,29,194)" class="shape s4"/>
+      </svg>
     </div>
     <div class="about-text-col">
       <div class="section-label">About</div>
@@ -128,27 +165,36 @@
       <h2>Skills</h2>
     </div>
     <div class="skills-grid">
-      <div class="skill-col">
-        <h3>Frontend</h3>
-        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">JavaScript</span></div>
-        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">HTML</span></div>
-        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">CSS</span></div>
-        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">React</span></div>
-        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">Responsive Design</span></div>
+      <div class="skill-col skill-col-frontend">
+        <div class="skill-col-header">
+          <span class="skill-icon">⚡</span>
+          <h3>Frontend</h3>
+        </div>
+        <div class="skill-item"><div class="dot dot-yellow"></div><span class="lit">JavaScript</span><span class="skill-bar"><span class="skill-fill" style="width:90%;background:var(--yellow)"></span></span></div>
+        <div class="skill-item"><div class="dot dot-orange"></div><span class="lit">HTML</span><span class="skill-bar"><span class="skill-fill" style="width:95%;background:var(--orange)"></span></span></div>
+        <div class="skill-item"><div class="dot dot-pink"></div><span class="lit">CSS</span><span class="skill-bar"><span class="skill-fill" style="width:88%;background:var(--pink)"></span></span></div>
+        <div class="skill-item"><div class="dot dot-yellow"></div><span class="lit">React</span><span class="skill-bar"><span class="skill-fill" style="width:70%;background:var(--yellow)"></span></span></div>
+        <div class="skill-item"><div class="dot dot-orange"></div><span class="lit">Responsive Design</span><span class="skill-bar"><span class="skill-fill" style="width:85%;background:var(--orange)"></span></span></div>
       </div>
-      <div class="skill-col">
-        <h3>Backend</h3>
-        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">Node.js</span></div>
-        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">Express</span></div>
-        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">PHP / Laravel</span></div>
-        <div class="skill-item"><div class="dot dot-purple"></div><span>SQL / MySQL</span><span class="badge">learning</span></div>
-        <div class="skill-item"><div class="dot dot-purple"></div><span>REST APIs</span><span class="badge">learning</span></div>
+      <div class="skill-col skill-col-backend">
+        <div class="skill-col-header">
+          <span class="skill-icon">🛠️</span>
+          <h3>Backend</h3>
+        </div>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">Node.js</span><span class="skill-bar"><span class="skill-fill" style="width:65%;background:var(--cyan)"></span></span></div>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">Express</span><span class="skill-bar"><span class="skill-fill" style="width:60%;background:var(--cyan)"></span></span></div>
+        <div class="skill-item"><div class="dot dot-cyan"></div><span class="lit">PHP / Laravel</span><span class="skill-bar"><span class="skill-fill" style="width:72%;background:var(--cyan)"></span></span></div>
+        <div class="skill-item"><div class="dot dot-purple"></div><span>SQL / MySQL</span><span class="skill-bar"><span class="skill-fill" style="width:35%;background:var(--purple)"></span></span><span class="badge">learning</span></div>
+        <div class="skill-item"><div class="dot dot-purple"></div><span>REST APIs</span><span class="skill-bar"><span class="skill-fill" style="width:40%;background:var(--purple)"></span></span><span class="badge">learning</span></div>
       </div>
-      <div class="skill-col">
-        <h3>Tools</h3>
-        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">Git</span></div>
-        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">GitHub</span></div>
-        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">VS Code</span></div>
+      <div class="skill-col skill-col-tools">
+        <div class="skill-col-header">
+          <span class="skill-icon">🔧</span>
+          <h3>Tools</h3>
+        </div>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">Git</span><span class="skill-bar"><span class="skill-fill" style="width:80%;background:#c0c0d0"></span></span></div>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">GitHub</span><span class="skill-bar"><span class="skill-fill" style="width:82%;background:#c0c0d0"></span></span></div>
+        <div class="skill-item"><div class="dot dot-white"></div><span class="lit">VS Code</span><span class="skill-bar"><span class="skill-fill" style="width:90%;background:#c0c0d0"></span></span></div>
       </div>
     </div>
     <div class="certs-link-row">
@@ -165,10 +211,10 @@
       <div class="neon-line"></div>
       <p>Have a project in mind or want to collaborate? Feel free to reach out.</p>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/alexis-carbajal-51812434a/" target="_blank" class="social-btn">LinkedIn ↗</a>
-        <a href="https://wa.me/525573854446?text=Hola%20Alexis." target="_blank" class="social-btn">WhatsApp ↗</a>
-        <a href="https://github.com/Alexis-CE" target="_blank" class="social-btn">GitHub ↗</a>
-        <a href="https://www.facebook.com/profile.php?id=100072151099808" target="_blank" class="social-btn">Facebook ↗</a>
+        <a href="https://www.linkedin.com/in/alexis-carbajal-51812434a/" target="_blank" class="social-btn social-btn-linkedin">LinkedIn ↗</a>
+        <a href="https://wa.me/525578370483?text=Hola%20Alexis." target="_blank" class="social-btn social-btn-whatsapp">WhatsApp ↗</a>
+        <a href="https://github.com/Alexis-CE" target="_blank" class="social-btn social-btn-github">GitHub ↗</a>
+        <a href="https://www.facebook.com/profile.php?id=100072151099808" target="_blank" class="social-btn social-btn-facebook">Facebook ↗</a>
       </div>
     </div>
     <div class="contact-right">
@@ -192,6 +238,7 @@
 
   <script src="./js/main.js"></script>
   <script>
+    // Smooth scroll function
     function smoothTo(e, id) {
       e.preventDefault();
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
